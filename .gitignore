@@ -3,3 +3,5 @@ token.pickle
 .DS_Store
 credentials.json
 .env
+score.csv
+.pyc

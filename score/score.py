@@ -35,5 +35,5 @@ def read_valid_scores(path):
   return list(filter(filter_valid_scores, players))
 
 if __name__ == "__main__":
-  players = read_valid_scores(os.getenv('HCTI_API_KEY') or 'sample.csv')
+  players = read_valid_scores(os.getenv('SCORE_CSV_PATH') or 'sample.csv')
   print(players)

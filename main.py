@@ -1,9 +1,9 @@
+import os
 from dotenv import load_dotenv
 from gmail.gmail import create_message, send_message
 from image.hcti import create_score_image
 from score.score import read_valid_scores
 
-load_dotenv()
 
 def send_email(to, image_url):
   with open('email.html') as f:
@@ -11,11 +11,12 @@ def send_email(to, image_url):
 
   email = email.replace('{image}', image_url)
 
-  msg = create_message('', to, 'Play O Ground 보은 경기 결과(Play O Ground Result)', email)
-  send_message('orienteeringlovers@gmail.com', msg)
+  msg = create_message('', to, os.getenv('EMAIL_TITLE'), email)
+  send_message(os.getenv('EMAIL_SENDER'), msg)
 
 
-scores = read_valid_scores('score/sample.csv')
+load_dotenv()
+scores = read_valid_scores(os.getenv('SCORE_CSV_PATH'))
 
 for score in scores:
   print('# Process.. %s' % score['name'])
