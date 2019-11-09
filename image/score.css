@@ -8,13 +8,13 @@
     font-family: 'Helvetica';
     background-size: 1000px 1000px;
     background-repeat: no-repeat;
-    background-image: url("https://playoground.s3.ap-northeast-2.amazonaws.com/bg.jpeg")
-  }
+    background-image: url("https://playoground.s3.ap-northeast-2.amazonaws.com/bg.png")
+}
 
 .txt {
-    padding: 54px 0px 0px 20px;
+    padding: 0px 0px 0px 20px;
 }
 
 .txt > h4 {
-    margin-bottom: 68px
+    margin-bottom: -4px
 }
