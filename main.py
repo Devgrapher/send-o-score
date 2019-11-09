@@ -1,6 +1,9 @@
+from dotenv import load_dotenv
 from gmail.gmail import create_message, send_message
-from score.score import read_valid_scores
 from image.hcti import create_score_image
+from score.score import read_valid_scores
+
+load_dotenv()
 
 def send_email(to, image_url):
   with open('email.html') as f:

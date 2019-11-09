@@ -1,9 +1,15 @@
+import os
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
+IMAGE_FORMAT='.jpg'
 
 def _create_image(html, css, score):
   HCTI_API_ENDPOINT = "https://hcti.io/v1/image"
-  HCTI_API_USER_ID = 'ad100bbc-6b53-40ca-aa89-20f136d920de'
-  HCTI_API_KEY = '43d25aef-cc81-44da-b269-9e1658925642'
+  HCTI_API_USER_ID = os.getenv('HCTI_API_USER_ID')
+  HCTI_API_KEY = os.getenv('HCTI_API_KEY')
 
   data = {
     'html': html,
@@ -12,13 +18,13 @@ def _create_image(html, css, score):
 
   image = requests.post(url = HCTI_API_ENDPOINT, data = data, auth=(HCTI_API_USER_ID, HCTI_API_KEY))
 
-  return image.json()['url']
+  return image.json()['url'] + IMAGE_FORMAT
 
 
 def create_score_image(score):
-  with open('image/score.html') as f:
+  with open(os.getenv('IMAGE_HTML_PATH')) as f:
     html = f.read()
-  with open('image/score.css') as f:
+  with open(os.getenv('IMAGE_CSS_PATH')) as f:
     css = f.read()
 
   html = html.replace('{name}', score['name'])
