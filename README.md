@@ -1,11 +1,10 @@
 # 오리엔티어링 기록 이메일 발송(Send Orienteering Score image)
 
-## Setup
+## How to run 
+1. `cp .evn.example .env` and fill the vaiables.
+2. python main.py
 
-### Copy `.env` template
-``` bash
-cp .evn.example .env
-```
+## .env options
 
 ### Fill the values in `.env` accordingly.
 1. Go https://htmlcsstoimage.com/ and get an API key and User ID. Then fill the values below.
