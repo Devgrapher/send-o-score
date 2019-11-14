@@ -84,5 +84,5 @@ def send_message(user_id, message):
 
 if __name__ == '__main__':
     msg = create_message('', 'devgrapher@gmail.com', '보은 경기 결과', '테스트입니다.')
-    sent = send_message('devgrapher@gmail.com', msg)
+    sent = send_message('me', msg)
     print(sent)
